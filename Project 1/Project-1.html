@@ -1,0 +1,259 @@
+<!-- @author Matthew Chang -->
+<!-- CSDS 221: project 1 -->
+<body>
+    <form class = "formElement">
+
+        <!-- boostrap well (the header) -->
+        <div class = "well">
+            Fill out the form and click the submit button when complete.
+        </div>
+
+        <!-- main body -->
+        <div class = "row">
+
+            <!-- the left column -->
+            <div class = "col-md-6"> <!-- split screen in half-->
+
+                <!-- user panel -->
+                <div class = "panel panel-default">
+                    <!-- user panel heading -->
+                    <div class = "panel-heading">
+                        User:
+                    </div>
+
+                    <!-- user panel body (contains username, first name, and last name)-->
+                    <div class = "panel-body">
+
+                        <!-- username subpanel -->
+                        <div class = "form-group">
+                            <label class = "control-label" for = "username">
+                                    Username:
+                            </label>
+                            <input type = "text" class = "form-control" id = "username" placeholder="Type username...">
+                        </div>
+
+                        <!-- first name subpanel -->
+                        <div class = "form-group">
+                            <label class = "control-label" for = "firstName">
+                                First Name:
+                            </label>
+                            <input type = "text" class = "form-control" id = "firstName" placeholder = "Type first name...">
+                        </div>
+
+                        <!-- last name subpanel -->
+                        <div class = "form-group">
+                            <label class = "control-label" for = "lastName">
+                                Last Name:
+                            </label>
+                            <input type = "text" class = "form-control" id = "lastName" placeholder = "Type last name...">
+                        </div>
+
+                    </div> <!-- end of user panel body -->
+                </div> <!-- end of user panel-->
+
+
+
+                <!-- contact panel -->
+                <div class = "panel panel-default">
+                    <!-- contact panel heading -->
+                    <div class = "panel-heading">
+                        Contact:
+                    </div>
+                    
+                    <!-- contact panel body (contains phone, fax, and email) -->
+                    <div class = "panel-body">
+
+                        <!-- phone subpanel -->
+                        <div class = "form-group">
+                            <label class = "control-label" for = "phone">
+                                Phone:
+                            </label>
+                            <div class = "input-group">
+                                <span class = "input-group-addon"><i class = "fa fa-phone"></i></span>
+                                <input type = "text" class = "form-control" id = "phone" placeholder = "Type phone#...">
+                            </div>
+                        </div>
+
+                        <!-- fax subpanel -->
+                        <div class = "form-group">
+                            <label class = "control-label" for = "fax">
+                                Fax:
+                            </label>
+                            <div class = "input-group">
+                                <span class = "input-group-addon"><i class = "fa fa-fax"></i></span>
+                                <input type = "text" class = "form-control" id = "fax" placeholder = "Type fax#...">
+                            </div>
+                        </div>
+
+                        <!-- email subpanel -->
+                        <div class = "form-group">
+                            <label class = "control-label" for = "email">
+                                Email:
+                            </label>
+                            <div class = "input-group">
+                                <span class = "input-group-addon"><i class = "fa fa-envelope"></i></span>
+                                <input type = "text" class = "form-control" id = "email" placeholder = "Type e-mail...">
+                            </div>
+                        </div>
+
+                    </div> <!-- end of contact panel body -->
+                </div> <!-- end of contact panel -->
+
+
+
+                <!-- schedule panel -->
+                <div class = "panel panel-default">
+                    <!-- schedule panel heading -->
+                    <div class = "panel-heading">
+                        Schedule:
+                    </div>
+
+                    <!-- schedule panel body (contains number of adults, check-in, check-out, days, and cost in dollars) -->
+                    <div class = "panel-body">
+
+                        <!-- adults -->
+                        <div class = "form-group">
+                            <label class = "control-label" for = "adults">
+                                Adults:
+                            </label>
+                            <select class = "form-control" id = "adults">
+                                <option value = "1">1</option>
+                                <option value = "2">2</option>
+                                <option value = "3">3</option>
+                                <option value = "4">4</option>
+                                <option value = "5">5</option>
+                            </select>
+                        </div>
+
+                        <!-- check-in -->
+                        <div class = "form-group">
+                            <label class = "control-label" for = "checkIn">
+                                Check-In:
+                            </label>
+                            <input type = "date" class = "form-control" id = "checkIn">
+                        </div>
+
+                        <!-- check-out -->
+                        <div class = "form-group">
+                            <label class = "control-label" for = "checkOut">
+                                Check-Out:
+                            </label>
+                            <input type = "date" class = "form-control" id = "checkOut">
+                        </div>
+
+                        <!-- days -->
+                        <div class = "form-group">
+                            <label class = "control-label" for = "days">
+                                Days:
+                            </label>
+                            <input type = "text" class = "form-control" id = "days" readonly placeholder = "Dispalys days...">
+                        </div>
+
+                        <!-- cost -->
+                        <div class = "form-group">
+                            <label class = "control-label" for = "cost">
+                                Cost($):
+                            </label>
+                            <input type = "text" class = "form-control" id = "cost" readonly placeholder = "Dispalys days...">
+                        </div>
+
+                    </div> <!-- end of schedule panel body -->
+                </div> <!-- end of schedule panel -->
+
+            </div> <!-- end of the left column-->
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- the right column -->
+            <div class = "col-md-6">
+                <!-- other panel -->
+                <div class = "panel panel-default">
+
+                    <!-- other panel heading-->
+                    <div class = "panel-heading">
+                        Other
+                    </div>
+
+                    <!-- other panel body -->
+                    <div class = "panel-body">
+
+                        <!-- text box -->
+                        <div class = "form-group">
+                            <label class = "control-label" for = "additionalInfo">
+                                Message:
+                            </label>
+                            <textarea class="form-control" id = "additionalInfo" rows = "10" placeholder = "Type message here..."></textarea>
+                        </div>
+
+                        <!-- range slider -->
+                        <div class = "form-group">
+                            <label class = "control-label">
+                                Range:
+                            </label>
+                            <input type = "range" class = "form-control" min = "0" max = "10" step = "1">
+                        </div>
+
+                        <!-- select priority -->
+                        <div class = "form-group">
+                            <label>Priority:</label>
+                            <div class = "radio-inline">
+                                <input type = "radio" name = "priority" value = "low" id = "priorityLow">
+                                <label for = "priorityLow">
+                                    Low
+                                </label>
+                            </div>
+                            <div class = "radio-inline">
+                                <input type = "radio" name = "priority" value = "med" id = "priorityMed">
+                                <label for = "priorityMed">
+                                    Med
+                                </label>
+                            </div>
+                            <div class = "radio-inline">
+                                <input type = "radio" name = "priority" value = "high" id = "priorityHigh">
+                                <label for = "priorityHigh">
+                                    High
+                                </label>
+                            </div>
+                        </div>
+
+
+                    </div> <!-- end of other panel body -->
+                </div> <!-- end of other panel -->
+
+            </div> <!-- end of the right column-->
+
+        </div> <!-- end of main body -->
+
+
+
+        <!-- submit/reset buttons (footer) -->
+        <div class = "form-group">
+            <div class = "col-md-12 text-center">
+                <button type = "button" class = "btn-reset" id = "reset">
+                    Reset
+                </button>
+                <button type = "button" class = "btn-submit" id = "submit">
+                    Submit
+                </button>
+            </div>
+        </div> <!-- end of footer -->
+
+    </form>
+</body>
+
+<!-- for javascript -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="script.js"></script>

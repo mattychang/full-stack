@@ -1,0 +1,221 @@
+/* @author Matthew Chang */
+
+/* global */
+body {
+    font-family: "Arial", sans-serif;
+    font-size: 1.5em;
+    background-color: #eee;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* global 2 for form elements */
+.formElement {
+    background-color: #fff;
+    padding: 60px;
+}
+
+/* for the header at the top */
+.well {
+    color: #31708f;
+    background-color: #d9edf7;
+    border: none;
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+}
+
+/* for the footer (submit and reset buttons) at the bottom */
+#submit, #reset {
+    width: auto;
+    padding: 10px 40px 10px 40px;
+    margin: 10px;
+}
+
+
+
+
+
+/* for panels */
+.panel {
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* .panel-default is provided by bootstrap */
+
+.panel-heading {
+    background-color: #337ab7;
+    color: #fff;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.panel-body {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+
+
+
+
+
+/* for subpanels */
+.form-group {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* .control-label is provided by boostrap */
+
+.form-control {
+    box-shadow: none;
+    border-radius: 0;
+    border-color: #ddd;
+    background-color: #eee;
+}
+
+
+
+
+
+/* interactive things */
+/* .input-group is provided by bootstrap */
+
+.input-group-addon {
+    padding-right: 30px;
+    border-color: #ddd;
+    background-color: #eee;
+}
+
+.radio-inline input[type="radio"] {
+    margin-top: 12;
+}
+
+.btn-reset {
+    border-radius: 0;
+    margin-right: 0;
+    color: white;
+    background-color: #337ab7;
+}
+
+.btn-submit {
+    border-radius: 0;
+    margin-right: 0;
+    color: white;
+    background-color: #36bd5d;
+}
+
+
+
+
+/* for better viewing purposes */
+.row [class*="col-"]:not(:first-child) {
+    padding-left: 5px;
+}
+
+.row [class*="col-"]:not(:last-child) {
+    padding-right: 5px;
+}
+
+
+
+
+
+
+/* range input styling */
+/* applies general settings across all range elements */
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    margin: 13.8px 0;
+}
+
+/* styles track on different browsers */
+input[type="range"]::-webkit-slider-runnable-track,
+input[type="range"]::-moz-range-track,
+input[type="range"]::-ms-track {
+    background: #3071a9;
+}
+
+/* removes outline when the range is clicked */
+input[type="range"]:focus {
+    outline: none;
+}
+
+/* styling */
+input[type="range"]::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000;
+    border: 1px solid #000000;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -14px;
+}
+
+
+
+
+
+
+/* toast notification settings */
+/* style */
+.toast-error {
+    background-color: #d9534f !important;
+}
+
+/* positioning */
+.toast-top-center {
+    top: 12px;
+    right: 50%;
+    transform: translateX(50%);
+}
+
+/* successful toast notification */
+.toast-success {
+    background-image: none !important;
+    background-color: green !important;
+    font-size: 1.2em;
+    padding-right: 15px;
+}
+
+/* informational toast notification */
+.toast-info {
+    background-color: #3498db !important;
+}
+
+
+
+
+
+
+/* styles controls when in error state (i.e., not filled out) */
+.has-error .form-control {
+    border-color: #a94442;
+    box-shadow: none;
+}
+
+
+
+
+
+
+/* adjusts the styling of input groups for small screens */
+@media (max-width: 767px) {
+    .input-group-addon {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .input-group .form-control {
+        width: 100%;
+    }
+}

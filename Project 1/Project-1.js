@@ -1,15 +1,14 @@
+/* @author Matthew Chang */
+/* CSDS 221: project 1 js portion */
+
+
+
+
+// toastr notifications config
 toastr.options = {
-    closeButton: false,
-    debug: false,
     newestOnTop: false,
-    progressBar: false,
     positionClass: "toast-top-center",
-    preventDuplicates: false,
-    onclick: null,
-    showDuration: "300",
-    hideDuration: "1000",
-    timeOut: "5000",
-    extendedTimeOut: "1000",
+    showDuration: "500",
     showEasing: "swing",
     hideEasing: "linear",
     showMethod: "fadeIn",
@@ -17,59 +16,87 @@ toastr.options = {
     tapToDismiss: false
 };
 
+// functiosn
 $(document).ready(function () {
+
+    // event handler for calculating the cost
+    $("#adults, #checkIn, #checkOut").change(calculateDaysAndCost);
+
+    // function that calculates the cost based on the number of days and adults
+    // flat rate of 150 per person per day
     function calculateDaysAndCost() {
-        var checkIn = $("#checkIn").val(),
-            checkOut = $("#checkOut").val(),
-            adults = $("#adults").val();
-        var days = moment(checkOut).diff(moment(checkIn), "days");
-        var cost = days * 150 * adults;
+        const checkIn = $("#checkIn").val();
+        const checkOut = $("#checkOut").val();
+        const adults = $("#adults").val();
+        const days = moment(checkOut).diff(moment(checkIn), "days");
+        const cost = days * 150 * adults;
         $("#days").val(days);
         $("#cost").val(cost);
     }
 
-    $("#adults, #checkIn, #checkOut").change(calculateDaysAndCost);
 
+
+
+
+
+    // event handler for resetting the form
+    $("#reset").click(resetForm);
+
+    // function to reset the form
     function resetForm() {
-        $('#booking_form input[type="text"], #booking_form input[type="email"], #booking_form input[type="date"], #booking_form textarea').val('');
+        $('#booking_form').find('input[type="text"], input[type="email"], input[type="date"], textarea').val('');
         $('#booking_form #adults').val('1');
         $('#booking_form #days, #booking_form #cost').val('');
         $('#booking_form input[type="range"]').val(0).change();
         $('#booking_form input[type="radio"]').prop('checked', false);
         toastr.remove();
         toastr.clear();
-        toastr.info('All fields have been cleared.');
+        toastr.info('all form fields have been cleared.');
         $('#booking_form .form-group').removeClass('has-error has-success');
         $('#booking_form .form-control').removeClass('is-invalid is-valid');
     }
 
-    $("#reset").click(function () {
-        resetForm();
-    });
 
+
+
+
+
+    // event handler for submitting the form
     $("#submit").click(function () {
-        var hasError = false;
+        
+        // variable for the state of the form (has error or not)
+        let hasError = false;
+
+        // checking if required fields were filled out or not
         $("#username, #firstName, #lastName, #phone, #fax, #email").each(function () {
             if (!$(this).val()) {
                 $(this).closest(".form-group").addClass("has-error");
-                toastr.error("No " + $(this).attr("placeholder") + " entered.");
+                toastr.error($(this).attr("placeholder") + " was not entered.");
                 hasError = true;
-            } else {
+            } 
+            else {
                 $(this).closest(".form-group").removeClass("has-error");
             }
         });
 
-        var cost = $("#cost").val();
-        if (cost === "") {
-            toastr.error("No cost was calculated.");
+        // checking cost
+        const cost = $("#cost").val();
+        if (!cost) {
+            toastr.error("no cost was calculated. please specify.");
             hasError = true;
-        } else if (cost <= 0) {
-            toastr.error("Cost is negative or zero.");
+        } 
+        else if (cost < 0) {
+            toastr.error("cost is negative. please try again.");
+            hasError = true;
+        }
+        else if (cost == 0) {
+            toastr.error("cost is zero. please try again.");
             hasError = true;
         }
 
+        // final check: shows success if all fields were filled out and cost is positive
         if (!hasError) {
-            toastr.success("The form was successfully submitted.");
+            toastr.success("form was successfully submitted.");
         }
     });
 });

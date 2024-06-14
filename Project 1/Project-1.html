@@ -1,7 +1,30 @@
 <!-- @author Matthew Chang -->
-<!-- CSDS 221: project 1 -->
+<!-- CSDS 221: project 1 html portion -->
+
+<!-- necessary libraries -->
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- jQuery UI -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<!-- for my own javascript -->
+<script src="script.js"></script>
+<!-- Moment.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<!-- Toastr -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
+
+
+
+
+
+
+<!-- main code -->
 <body>
-    <form class = "formElement">
+    <form class = "container">
 
         <!-- boostrap well (the header) -->
         <div class = "well">
@@ -9,7 +32,7 @@
         </div>
 
         <!-- main body -->
-        <div class = "row">
+        <div class = "view">
 
             <!-- the left column -->
             <div class = "col-md-6"> <!-- split screen in half-->
@@ -154,7 +177,7 @@
                             <label class = "control-label" for = "cost">
                                 Cost($):
                             </label>
-                            <input type = "text" class = "form-control" id = "cost" readonly placeholder = "Dispalys days...">
+                            <input type = "text" class = "form-control" id = "cost" readonly placeholder = "Dispalys cost...">
                         </div>
 
                     </div> <!-- end of schedule panel body -->
@@ -250,10 +273,3 @@
     </form>
 </body>
 
-<!-- for javascript -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-<script src="script.js"></script>

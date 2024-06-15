@@ -19,12 +19,9 @@ toastr.options = {
 // functiosn
 $(document).ready(function () {
 
-    // event handler for calculating the cost
-    $("#adults, #checkIn, #checkOut").change(calculateDaysAndCost);
-
-    // function that calculates the total cost based on the number of days and adults
-    // flat rate of 150 per person per day
-    function calculateDaysAndCost() {
+    // function for calculating the total cost
+    // total cost is based on the number of days and adults with a flat rate of 150 per person per day
+    $("#adults, #checkIn, #checkOut").change(function () {
         // calculates the number of days by subtracting the check-out date from the chek-in date
         const checkIn = $("#checkIn").val();
         const checkOut = $("#checkOut").val();
@@ -38,19 +35,17 @@ $(document).ready(function () {
         // updates input fields for days and cost (read-only)
         $("#days").val(num_of_days);
         $("#cost").val(total_cost);
-    }
+    });
+
+    
 
 
 
 
 
 
-    // event handler for resetting the form
-    $("#reset").click(resetForm);
-
-    // function to reset the form
-    function resetForm() {
-
+    // function for resetting the form
+    $("#reset").click(function () {
         // resets all fields to empty/default
         $('.container').find('input[type="text"], input[type="email"], input[type="date"], textarea').val('');
         $('.container #adults').val('1');
@@ -67,14 +62,16 @@ $(document).ready(function () {
         // resets states of fields for safety purposes
         $('.container .form-group').removeClass('has-error has-success');
         $('.container .form-control').removeClass('is-invalid is-valid');
-    }
+    });
+
+
+
+    
 
 
 
 
-
-
-    // event handler for submitting the form
+    // function for submitting the form
     $("#submit").click(function () {
         
         // variable for the state of the form (has error or not)

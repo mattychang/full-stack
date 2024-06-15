@@ -22,16 +22,22 @@ $(document).ready(function () {
     // event handler for calculating the cost
     $("#adults, #checkIn, #checkOut").change(calculateDaysAndCost);
 
-    // function that calculates the cost based on the number of days and adults
+    // function that calculates the total cost based on the number of days and adults
     // flat rate of 150 per person per day
     function calculateDaysAndCost() {
+        // calculates the number of days by subtracting the check-out date from the chek-in date
         const checkIn = $("#checkIn").val();
         const checkOut = $("#checkOut").val();
+        const num_of_days = moment(checkOut).diff(moment(checkIn), "days");
+
         const adults = $("#adults").val();
-        const days = moment(checkOut).diff(moment(checkIn), "days");
-        const cost = days * 150 * adults;
-        $("#days").val(days);
-        $("#cost").val(cost);
+
+        // cost calculation 
+        const total_cost = 150 * adults * num_of_days;
+
+        // updates input fields for days and cost (read-only)
+        $("#days").val(num_of_days);
+        $("#cost").val(total_cost);
     }
 
 
@@ -44,16 +50,23 @@ $(document).ready(function () {
 
     // function to reset the form
     function resetForm() {
-        $('#booking_form').find('input[type="text"], input[type="email"], input[type="date"], textarea').val('');
-        $('#booking_form #adults').val('1');
-        $('#booking_form #days, #booking_form #cost').val('');
-        $('#booking_form input[type="range"]').val(0).change();
-        $('#booking_form input[type="radio"]').prop('checked', false);
+
+        // resets all fields to empty/default
+        $('.container').find('input[type="text"], input[type="email"], input[type="date"], textarea').val('');
+        $('.container #adults').val('1');
+        $('.container #days, .container #cost').val('');
+        $('.container input[type="range"]').val(0).change();
+        $('.container input[type="radio"]').prop('checked', false);
+
+        // removes and clears toastr previous notifications
         toastr.remove();
         toastr.clear();
+        // throw toastr notification saying all fields have been cleared
         toastr.info('all form fields have been cleared.');
-        $('#booking_form .form-group').removeClass('has-error has-success');
-        $('#booking_form .form-control').removeClass('is-invalid is-valid');
+
+        // resets states of fields for safety purposes
+        $('.container .form-group').removeClass('has-error has-success');
+        $('.container .form-control').removeClass('is-invalid is-valid');
     }
 
 
@@ -68,33 +81,38 @@ $(document).ready(function () {
         let hasError = false;
 
         // checking if required fields were filled out or not
+        // required fields: username, first name, last name, phone number, fax number, email address
         $("#username, #firstName, #lastName, #phone, #fax, #email").each(function () {
+            
+            // when a required field is empty, throw toastr notification saying such field is not enetred
             if (!$(this).val()) {
                 $(this).closest(".form-group").addClass("has-error");
                 toastr.error($(this).attr("placeholder") + " was not entered.");
                 hasError = true;
             } 
+            // otherwise remove the .has-error class from the field
             else {
                 $(this).closest(".form-group").removeClass("has-error");
             }
         });
 
-        // checking cost
-        const cost = $("#cost").val();
-        if (!cost) {
+        // checking cost. safety measures to validate that the cost is reasonable (exists, strictly positive)
+        const total_cost = $("#cost").val();
+        if (!total_cost) {
             toastr.error("no cost was calculated. please specify.");
             hasError = true;
         } 
-        else if (cost < 0) {
+        else if (total_cost < 0) {
             toastr.error("cost is negative. please try again.");
             hasError = true;
         }
-        else if (cost == 0) {
+        else if (total_cost == 0) {
             toastr.error("cost is zero. please try again.");
             hasError = true;
         }
 
-        // final check: shows success if all fields were filled out and cost is positive
+        // final check for the state of the form before form submission
+        // throw successful toastr notification 
         if (!hasError) {
             toastr.success("form was successfully submitted.");
         }

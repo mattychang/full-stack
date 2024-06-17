@@ -4,18 +4,6 @@
 
 
 
-// toastr notifications config
-toastr.options = {
-    newestOnTop: false,
-    positionClass: "toast-top-center",
-    showDuration: "500",
-    showEasing: "swing",
-    hideEasing: "linear",
-    showMethod: "fadeIn",
-    hideMethod: "fadeOut",
-    tapToDismiss: false
-};
-
 // functiosn
 $(document).ready(function () {
 
@@ -96,7 +84,7 @@ $(document).ready(function () {
         // checking cost. safety measures to validate that the cost is reasonable (exists, strictly positive)
         const total_cost = $("#cost").val();
         if (!total_cost) {
-            toastr.error("no cost was calculated. please specify.");
+            toastr.error("no cost was calculated. please specify dates.");
             hasError = true;
         } 
         else if (total_cost < 0) {
@@ -115,3 +103,16 @@ $(document).ready(function () {
         }
     });
 });
+
+
+// toastr notifications config
+toastr.options = {
+    newestOnTop: false,
+    positionClass: "toast-top-center",
+    showDuration: "500",
+    showEasing: "swing",
+    hideEasing: "linear",
+    showMethod: "fadeIn",
+    hideMethod: "fadeOut",
+    tapToDismiss: false
+};

@@ -1,4 +1,10 @@
 # full-stack
-CSDS 221: Full Stack Web Development
+## Author: Matthew Chang
 
-Project 1 [access link](https://codepen.io/mattychang/pen/WNBXQVe).
+This repository contains projects aimed at learning full stack web development.
+
+Project 1: introduction to forms that are used on web applications. [Link](https://codepen.io/mattychang/pen/WNBXQVe)
+
+Project 2: introduction to frameworks that are used on web applications. 
+
+Project 3: 

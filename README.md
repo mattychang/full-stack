@@ -8,3 +8,5 @@ Project 1: introduction to forms. [Link](https://codepen.io/mattychang/pen/WNBXQ
 Project 2: introduction to frameworks. [Link](https://stackblitz.com/edit/vue-so5eyc?file=src%2Fmain.js)
 
 Project 3: 
+
+[freeCodeCamp profile](https://www.freecodecamp.org/msc148)

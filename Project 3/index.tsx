@@ -2,8 +2,8 @@
 // CSDS 221: initialize
 
 // importing modules
-import { StrictMode } from 'react';                             // to highlight problems in the app
-import { createRoot } from 'react-dom/client';                  // reders app
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 import App from './App';
 
 // creating the root

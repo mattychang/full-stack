@@ -74,7 +74,6 @@ const Hangman: React.FC = () => {
 
             // cehcks if guessed letter is in the current word
             if (currentWord.toUpperCase().includes(inputValue)) {
-                // update display
                 const newDisplayedWord = displayedWord.map((char, index) =>                     // update display
                     currentWord.toUpperCase()[index] === inputValue ? inputValue : char
                 );

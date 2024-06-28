@@ -74,6 +74,7 @@ const Hangman: React.FC = () => {
 
             // cehcks if guessed letter is in the current word
             if (currentWord.toUpperCase().includes(inputValue)) {
+                // update display
                 const newDisplayedWord = displayedWord.map((char, index) =>                     // update display
                     currentWord.toUpperCase()[index] === inputValue ? inputValue : char
                 );
@@ -219,6 +220,7 @@ const Hangman: React.FC = () => {
                         <form className = "guess-input" onSubmit = {handleSubmit}>
                             <input
                                 type = "text"
+                                id = "letter-input"
                                 value = {inputValue}
                                 onChange = {handleInputChange}
                                 className = {`form-control ${inputError ? 'is-invalid' : ''}`}
@@ -230,6 +232,7 @@ const Hangman: React.FC = () => {
                         <form className = "word-guess-input" onSubmit = {handleWordGuessSubmit}>
                             <input
                                 type = "text"
+                                id = "word-input"
                                 value = {wordGuess}
                                 onChange = {handleWordGuessChange}
                                 className = {`form-control ${inputError ? 'is-invalid' : ''}`}
